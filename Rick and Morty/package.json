@@ -1,0 +1,28 @@
+{
+    "name": "following-eyes",
+    "version": "1.0.0",
+    "description": "Eyes that follow your mouse",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/pncsoares/following-eyes.git"
+    },
+    "keywords": [
+        "eyes-following",
+        "following-eyes",
+        "eyes",
+        "following"
+    ],
+    "author": "Pedro Soares",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/pncsoares/following-eyes/issues"
+    },
+    "homepage": "https://github.com/pncsoares/following-eyes#readme",
+    "devDependencies": {
+        "prettier": "2.7.1"
+    }
+}

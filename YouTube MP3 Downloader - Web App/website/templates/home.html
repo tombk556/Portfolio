@@ -1,0 +1,66 @@
+{% extends 'base.html' %} {% block title %}Homepage{% endblock title %}
+{% block content %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+<br>
+<div align="center">
+    <form method="POST" >
+        <h3 align="center">YouTube MP3 Downloader</h3>
+        <br>
+        <div class="input-container">
+            <input type="text" placeholder="YouTube URL" id="url" name="url"  style="width: 700px; height: 40px">
+            <br>
+            <br>
+            <input type="text" placeholder="Song" id="name" name="name" style="width: 700px; height: 40px">
+            <br>
+            <br>
+            <input type="text" placeholder="Artist" id="artist" name="artist" style="width: 700px; height: 40px">
+        </div>
+        <br>
+        <button type="submit" class="btn btn-primary">Add to Download List</button>
+    </form>
+    <br>
+    <div>
+        <table class="table table-hover table-white">
+            <thead>
+                <tr>
+                    <th scope="col1">URL</th>
+                    <th scope="col2">Song</th>
+                    <th scope="col3">Artist</th>
+                    <th scope="col4">Date</th>
+                    <th scope="col5" colspan="2">Actions</th>
+                    
+                </tr>
+            </thead>
+            <tbody>
+                {% for note in user.notes  %}
+                    <tr>
+                        <td>{{ note.url }}</td>
+                        <td>{{ note.name }}</td>
+                        <td>{{ note.artist }}</td>
+                        <td>{{ note.date }}</td>
+                        <td>
+                            <form action="/process" method="POST">
+                                <input type="hidden" name="col0", value="{{ note.id }} " >
+                                <input type="hidden" name="col1", value="{{ note.url }} " >
+                                <input type="hidden" name="col2", value="{{ note.name }}">
+                                <input type="hidden" name="col3", value="{{ note.artist }}">
+                                <button type="submit">Download</button>
+                              </form>
+                        </td>
+                        <td>
+                            <form action="/delte" method="POST">
+                                <input type="hidden" name="col0", value="{{ note.id }} " >
+                                <button type="submit">Delte</button>
+                              </form>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    
+
+
+</div>
+{% endblock content %}
+ 
